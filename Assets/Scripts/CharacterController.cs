@@ -13,6 +13,7 @@ public class CharacterController : MonoBehaviour
 
     public float _speed = 10;
     public float _rotationSpeed = 180;
+    public float dashSpeed;
 
     private Vector3 rotation;
 
@@ -28,6 +29,13 @@ public class CharacterController : MonoBehaviour
         this.rotation = new Vector3(0, (Input.GetAxisRaw("Horizontal")) * _rotationSpeed * Time.deltaTime, 0);
         this.transform.Rotate(this.rotation);
     }
+
+    public void Dash()
+    {
+        transform.Translate(Vector3.forward * dashSpeed * Time.deltaTime);
+        print("dashed");
+    }
+
     private void CharacterMovements() => transform.Translate(new Vector3(MoveInputs().x, gravityAmount, MoveInputs().z).normalized * speed * Time.deltaTime);
 
     private void Update()

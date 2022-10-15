@@ -7,9 +7,9 @@ public class PlayerStates : MonoBehaviour
     //private MobMobAnimationManager MobMobAnimationManager;
     //[SerializeField] Looter looter;
     
-    [SerializeField] Collider mobMobCollider;
-   
-    [Header("Charecater Attacks")]
+    //[SerializeField] Collider mobMobCollider;
+    [SerializeField] CharacterController characterController;
+     [Header("Charecater Attacks")]
     public GameObject[] attack;
     public Transform[] attackPoint;
     
@@ -22,7 +22,10 @@ public class PlayerStates : MonoBehaviour
     public enum playerState
     {
        movement,
-        attack,
+        attack1,
+        attack2,
+        attack3,
+        dash,
         hit
     }
 
@@ -40,11 +43,19 @@ public class PlayerStates : MonoBehaviour
         canAttack = true;
     }
 
-    private void Attack1()
+    private void Attack(int AttackIndex)
     {
         print("Performed Attack1");
         isDoing = true;
-        Object.Instantiate(attack[0], attackPoint[0].position, attackPoint[0].rotation);
+        Object.Instantiate(attack[AttackIndex], attackPoint[AttackIndex].position, attackPoint[AttackIndex].rotation);
+        StartCoroutine(AttackCD());
+    }
+    private void DashAttack(int AttackIndex)
+
+    {
+        print("Performed Attack1");
+        isDoing = true;
+        Object.Instantiate(attack[AttackIndex], attackPoint[AttackIndex].position, attackPoint[AttackIndex].rotation);
         StartCoroutine(AttackCD());
     }
 
@@ -57,9 +68,18 @@ public class PlayerStates : MonoBehaviour
         switch (currentState)
         {
             case playerState.movement:
+            
+                if (Input.GetButtonDown("Fire3")) { characterController.Dash(); }   // Dash
+
                 break;
-            case playerState.attack:
-                Attack1();
+            case playerState.attack1:
+                Attack(0);
+                break;
+            case playerState.attack2:
+                break;
+            case playerState.attack3:
+                break;
+            case playerState.dash:
                 break;
             case playerState.hit:
                 break;
@@ -70,20 +90,25 @@ public class PlayerStates : MonoBehaviour
     private void trackStateChanges()
     {
         // A = Fire1
+        // X = Fire3
+        // B = fire2
 
         // ne pas rentrer en perma dans les states 
         if (isDoing) return;
-
-        else if (Input.GetButtonDown("Fire1")) { SwapaStates(playerState.attack); print("pressed A"); }
-
-        //else if (inChaseRange() && !isAttack && playerDetected) { ChangeState(MobStates.chase); }
-
-        //else if (!inChaseRange() && !isAttack && !playerDetected) { ChangeState(MobStates.wander); }
+        else if (Input.GetButtonDown("Fire2")) { characterController.Dash(); }
+        
+        else if (Input.GetButtonDown("Fire1")) { SwapaStates(playerState.attack1); print("pressed A"); }
+      
+        else { currentState = playerState.movement; }
     }
 
     private void Update()
     {
-        trackStateChanges();
+        if (Input.GetButtonDown("Fire2"))
+        {
+             print("pressed X");
+        }
+            trackStateChanges();
     }
     //IEnumerator SpecialHitState(float VFXtime)
     //{
