@@ -16,12 +16,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: eyes_low_SeamsColor
-    second: {fileID: 2100000, guid: bd7869e903ddc8f4c820842b9971edea, type: 2}
+    second: {fileID: 2100000, guid: 8d08854ac9863d54c900d79bb60b44c2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: head_low_SeamsColor
-    second: {fileID: 2100000, guid: bd7869e903ddc8f4c820842b9971edea, type: 2}
+    second: {fileID: 2100000, guid: f59870946ade86341a1c32cd2ad78e09, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
