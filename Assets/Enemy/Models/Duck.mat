@@ -82,9 +82,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - ENABLE_BENDING: 0
+    - ENABLE_BENDING: 1
     - _AlphaClip: 0
-    - _Amount: 0.03
+    - _Amount: 0.0085
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
