@@ -47,7 +47,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     // ATTACKS
     private void JumpAttack() => Object.Instantiate(jumpAttack, JumpAttackPoint.position, JumpAttackPoint.rotation);
-    private void GroinkAttack() => Object.Instantiate(groinkAttack, JumpAttackPoint.position, JumpAttackPoint.rotation);
+    private void GroinkAttack() => Object.Instantiate(groinkAttack, groinkAttackPoint.position, groinkAttackPoint.rotation);
     void Update()
     {
         SwapAnimation();
