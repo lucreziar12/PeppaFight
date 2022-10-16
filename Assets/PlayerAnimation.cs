@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     public GameObject jumpAttack;
+    public GameObject groinkAttack;
     public Transform JumpAttackPoint;
+    public Transform groinkAttackPoint;
     public Animator animator;
     public PlayerController playerController;
 
@@ -16,6 +18,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("attack1", false);
         animator.SetBool("attack2", false);
     }
+
     public void SwapAnimation()
     {
         switch (playerController.currentState)
@@ -44,6 +47,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     // ATTACKS
     private void JumpAttack() => Object.Instantiate(jumpAttack, JumpAttackPoint.position, JumpAttackPoint.rotation);
+    private void GroinkAttack() => Object.Instantiate(groinkAttack, JumpAttackPoint.position, JumpAttackPoint.rotation);
     void Update()
     {
         SwapAnimation();
