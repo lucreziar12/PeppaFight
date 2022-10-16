@@ -6,6 +6,7 @@ public class HPmanager : MonoBehaviour
 {
     [SerializeField] int MaxHealt = 10;
     //[HideInInspector]
+    public GameObject vizuals;
     public float currenthealth;
 
     public int compteur = 0; // DOT compteur
@@ -25,6 +26,7 @@ public class HPmanager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        print("Took damage");
         currenthealth = currenthealth - damage;
         Die();          
     }
@@ -33,13 +35,8 @@ public class HPmanager : MonoBehaviour
     {
         if (currenthealth <= 0)
         {
-            //mobMobState.ChangeState(MobMobState.MobStates.dead);    // dosen't work for some shady reasons 
+            vizuals.SetActive(false);
         }
-    }
-    public void SetMaxhealth()
-    {
-        //slider.maxValue = MaxHealt;
-        //slider.value = currenthealth;
     }
 
     private void Update()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform target;
     public float distanceToTarget;
     public float detectTarget;
+    public float attackCD;
+    float attackRange;
+
+    private bool canAttack;
 
     void Start()
     {
+        canAttack = true;
         attackRangeVizualisation.transform.localScale = new Vector3(detectTarget,.5f, detectTarget);
     }
     private void GetToPlayer()
@@ -23,11 +29,6 @@ public class Enemy : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
-    }
-    private void Attack()
-    {
-        attackCld.enabled = true;
-        StartCoroutine(resteAttackCollider());
     }
 
     private void CloseToPlayer()
@@ -43,16 +44,9 @@ public class Enemy : MonoBehaviour
         // MOUVEMENT
         GetToPlayer();
         CloseToPlayer();
-
         // ATTACK
 
         //  OUI
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-    }
-
-    IEnumerator resteAttackCollider()
-    {
-        yield return new WaitForSeconds(.01f);
-        attackCld.enabled = false;
     }
 }

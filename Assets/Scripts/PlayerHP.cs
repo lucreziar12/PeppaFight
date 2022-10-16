@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerHP : MonoBehaviour
 {
-
+    public GameObject HitVFX;
+    public Transform HitPoint;
     [SerializeField] int MaxHealt = 10;
     public float currenthealth;
     public int compteur = 0;
@@ -27,6 +28,7 @@ public class PlayerHP : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currenthealth = currenthealth - damage;
+        Object.Instantiate(HitVFX, HitPoint.position, HitPoint.rotation);
         Die();
     }
 
