@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: rings
+  m_Shader: {fileID: -6465566751694194690, guid: 73a5521d63627c545b0708f743c668d3, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_b32f6d2ae5354766afddaf3bcefcfd9f_Texture_1:
+        m_Texture: {fileID: 2800000, guid: e4ea3430c74d4144a99a4f3d60db9924, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_be2fdb107a5b465381c09ae2b4085b1c_Texture_1:
+        m_Texture: {fileID: 2800000, guid: e4ea3430c74d4144a99a4f3d60db9924, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_2822dfb6603242088c2e75417e6837c4: 1
+    - Vector1_70af5e471a3d4d659cc631eb496bb6fb: 25
+    - Vector1_843a38db9a29487fb366177de6303d6e: 0
+    m_Colors:
+    - Color_12aaddba428c463bb33854b4307ad0a6: {r: 315.173, g: 75.394325, b: 0, a: 1}
+    - Color_d7627c2b5f4b4adfb74058e505202ea4: {r: 1, g: 0.26943004, b: 0, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &4761603397721340486
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
