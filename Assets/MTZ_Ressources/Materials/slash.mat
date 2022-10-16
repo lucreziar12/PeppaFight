@@ -43,6 +43,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_017c81ca7e534dee8ed49555fe38d3ca: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_42686b17b0c8447b8a1655c44714f286: {r: 11.313708, g: 6.8769603, b: 3.6825013, a: 0}
   m_BuildTextureStacks: []

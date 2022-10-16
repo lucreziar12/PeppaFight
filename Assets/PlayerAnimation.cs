@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    public GameObject jumpAttack;
+    public Transform JumpAttackPoint;
     public Animator animator;
     public PlayerController playerController;
 
@@ -40,6 +42,8 @@ public class PlayerAnimation : MonoBehaviour
                 break;
         }
     }
+    // ATTACKS
+    private void JumpAttack() => Object.Instantiate(jumpAttack, JumpAttackPoint.position, JumpAttackPoint.rotation);
     void Update()
     {
         SwapAnimation();

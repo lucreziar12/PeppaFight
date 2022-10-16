@@ -76,6 +76,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_4e1faef16e374c64b10d679cabdb4f39: 1.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - time: 0.534
     m_Colors:
     - Color_2ee76b06f407428eb2610f1510e470fa: {r: 5.5445695, g: 2.351362, b: 0.29029158, a: 0}
