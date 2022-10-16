@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject[] Attack;
+    public Transform[] AttackPoint;
     public GameObject Dash;
     public CharacterController controller;
     
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case PeppaStates.attack1:
+                Object.Instantiate(Attack[0], AttackPoint[0].position, AttackPoint[0].rotation);
                 isDoing = true;
                 StartCoroutine(RestetAction());
 
@@ -71,16 +74,17 @@ public class PlayerController : MonoBehaviour
         if (_isDead) return;
 
         else if (Input.GetButtonDown("Fire2")) { ChangeState(PeppaStates.dash); }   // DASH
-        else if (Input.GetButtonDown("Fire1")) { ChangeState(PeppaStates.attack1); print("attack1"); }  // Basic attack
+        else if (Input.GetButtonDown("Fire1")) { ChangeState(PeppaStates.attack1); }  // Basic attack
         else if (Input.GetButtonDown("Fire3")) { ChangeState(PeppaStates.attack2); }    // Jump attack
         else                                   { ChangeState(PeppaStates.movements); }  // Default state is moving (AKA idle)
 
     }
-        // movements
-        public void PlayerMovement()
+    // movements
+    public void PlayerMovement()
     {
         controller.Move(new Vector3(MoveInputX(), -1, MoveInputZ()) * speed * Time.deltaTime);
     }
+
     public void dash()
     {
         if (Input.GetButtonDown("Fire2"))
