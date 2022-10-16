@@ -4828,7 +4828,7 @@
     "m_RefNameGeneratedByDisplayName": "Enable",
     "m_DefaultReferenceName": "_Enable",
     "m_OverrideReferenceName": "ENABLE_BENDING",
-    "m_GeneratePropertyBlock": true,
+    "m_GeneratePropertyBlock": false,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_Precision": 2,
