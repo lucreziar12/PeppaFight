@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack1 : MonoBehaviour
+public class Attack2 : MonoBehaviour
 {
     private void Awake()
     {
-            StartCoroutine(ResetCollider());
+        StartCoroutine(ResetCollider());
     }
 
-    public Collider cld;
+    public Collider cld2;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<HPmanager>() != null)
+        if (other.GetComponent<HPmanager>() != null)
         {
             other.GetComponent<HPmanager>().TakeDamage(4);
         }
@@ -20,6 +20,9 @@ public class Attack1 : MonoBehaviour
     IEnumerator ResetCollider()
     {
         yield return new WaitForSeconds(.1f);
-        cld.enabled = false;
+        if(cld2.enabled != false)
+        {
+            cld2.enabled = false;
+        }
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject attackRangeVizualisation;
-    [SerializeField] Collider attackCld;
 
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform target;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HPmanager : MonoBehaviour
 {
+    public GameObject HitVFX;
+    public Transform HitVFXPoint;
+
     [SerializeField] int MaxHealt = 10;
     //[HideInInspector]
     public GameObject vizuals;
@@ -18,7 +21,7 @@ public class HPmanager : MonoBehaviour
 
     public void FireDOT(int numberOfTick, int tickDamageAmount)
     {
-        if( (compteur + 1) < numberOfTick )
+        if ((compteur + 1) < numberOfTick)
         {
             StartCoroutine(oui(numberOfTick, tickDamageAmount));
         }
@@ -27,8 +30,9 @@ public class HPmanager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         print("Took damage");
+        Object.Instantiate(HitVFX, HitVFXPoint.position, HitVFXPoint.rotation);
         currenthealth = currenthealth - damage;
-        Die();          
+        Die();
     }
 
     private void Die()
@@ -36,6 +40,7 @@ public class HPmanager : MonoBehaviour
         if (currenthealth <= 0)
         {
             vizuals.SetActive(false);
+            StartCoroutine(WaitForDeath());
         }
     }
 
@@ -49,7 +54,12 @@ public class HPmanager : MonoBehaviour
         yield return new WaitForSeconds(1);
         StopAllCoroutines();
         TakeDamage(tickDamageAmount);
-        FireDOT( numberOfTick, tickDamageAmount);
+        FireDOT(numberOfTick, tickDamageAmount);
         compteur++;
+    }
+    IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(.5f);
+        gameObject.SetActive(false);
     }
 }
